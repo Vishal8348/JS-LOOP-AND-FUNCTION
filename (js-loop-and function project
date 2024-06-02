@@ -1,0 +1,46 @@
+const nftCollection = [];
+
+// Function to create and register a new NFT
+function createNFT(name, artist, dateCreated)
+{
+  const nft =
+{
+    name,
+    artist,
+    dateCreated,
+    id: nftCollection.length + 1, // Adding a unique ID for each NFT
+    description: `A unique piece by ${artist} created on ${dateCreated}`
+  };
+  nftCollection.push(nft);
+}
+
+// Function to display all NFTs in the collection
+
+function displayNFTs() {
+  nftCollection.forEach((nft, index) =>
+{
+    console.log(`NFT ${index + 1}:`);
+    console.log(`  ID: ${nft.id}`);
+    console.log(`  Name: ${nft.name}`);
+    console.log(`  Artist: ${nft.artist}`);
+    console.log(`  Date Created: ${nft.dateCreated}`);
+    console.log(`  Description: ${nft.description}`);
+    console.log('-------------------------');
+  });
+}
+
+// Function to count the total number of NFTs
+
+function countTotalNFTs()
+{
+  return nftCollection.length;
+}
+
+// Minting some sample NFTs
+createNFT('Rising Star', 'Vishal', '2023-05-01');
+createNFT('Mid night', 'Ayush', '2023-06-15');
+createNFT('Mountain hight', 'Adarsh', '2023-07-22');
+
+// Listing all NFTs and showing the total supply
+displayNFTs();
+console.log('Total Supply: ' + countTotalNFTs());
